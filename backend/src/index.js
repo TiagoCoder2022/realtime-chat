@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+console.log("🔍 CLIENT_URL:", process.env.CLIENT_URL);
+console.log("🚀 NODE_ENV:", process.env.NODE_ENV);
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -23,10 +26,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+
+console.log("🌍 CORS habilitado para:", allowedOrigins);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
