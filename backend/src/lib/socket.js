@@ -2,6 +2,8 @@ import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 
+console.log("🔍 CLIENT_URL:", process.env.CLIENT_URL);
+
 const app = express();
 const server = http.createServer(app);
 
